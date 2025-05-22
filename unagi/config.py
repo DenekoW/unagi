@@ -530,7 +530,8 @@ class Server(object):
                                _PDR_W_WIDE07]
             elif dr=='pdr3':
                 self.data_release='pdr3'
-                self.deepcoadd=False
+                
+                self.deepcoadd=True
                 
                 # Time limit for connecting to HSC Server
                 self.timeout=600
@@ -545,6 +546,7 @@ class Server(object):
                 self.patch_url=PDR_URL+"/archive/filetree/pdr3_wide/deepCoadd-results/"
                 # PSF picker server
                 self.psf_url=PDR_URL+"/psf/pdr3/cgi/getpsf?"
+                
                 # Direct file tree
                 self.file_url=PDR_URL+"/archive/filetree/"
                 # DAS search server

@@ -440,7 +440,7 @@ def display_all(img_list, n_column=3, img_size=3., hdu_index=None, label_list=No
         n_row = int(np.ceil(n_img / n_column))
 
     fig = plt.figure(figsize=(img_size * n_col, img_size * n_row))
-    fig.subplots_adjust(left=0., right=1., bottom=0., top=1., wspace=0., hspace=0.)
+    fig.subplots_adjust(left=0., right=1., bottom=0., top=1., wspace=0, hspace=0.)
 
     gs = gridspec.GridSpec(n_row, n_col)
     gs.update(wspace=0.0, hspace=0.00)

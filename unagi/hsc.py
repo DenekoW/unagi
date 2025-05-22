@@ -343,7 +343,6 @@ class Hsc():
 
         psf_url = self.archive.psf_url + '&'.join(
             key + '=' + value for key, value in psf_dict.items())
-
         if img_type == 'warp':
             if verbose:
                 warnings.warn("# Not a coadd PSF model, will return the url")

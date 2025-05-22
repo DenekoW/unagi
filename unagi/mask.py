@@ -415,6 +415,43 @@ PDR2_BITMASKS = np.array(
     dtype=[('bits', np.uint8), ('name', '<U18'),
            ('meaning', '<U80'), ('color', '<U12'), ('value', np.uint32)])
 
+PDR3_BITMASKS = np.array(
+    [(0, 'BAD', 'Bad pixel',
+      'red', 2 ** 0),
+     (1, 'SAT', 'Source footprint includes saturated pixels',
+      'tab:purple', 2 ** 1),
+     (2, 'INTRP', 'Source footprint includes interpolated pixels',
+      'tab:orange', 2 ** 2),
+     (3, 'CR', 'Source footprint includes suspected CR pixels',
+      'tab:pink', 2 ** 3),
+     (4, 'EDGE', 'Source is close to the edge of the CCD',
+      'tab:olive', 2 ** 4),
+     (5, 'DETECTED', 'Pixel with detection above the threshold',
+      'tab:blue', 2 ** 5),
+     (6, 'DETECTED_NEGATIVE', 'Pixel in footprint that is detected as a negative object',
+      'gray', 2 ** 6),
+     (7, 'SUSPECT', 'Source footprint includes suspect pixels',
+      'orangered', 2 ** 7),
+     (8, 'NO_DATA', 'No useful data',
+      'black', 2 ** 8),
+     (9, 'BRIGHT_OBJECT', 'Bright star mask',
+      'tab:brown', 2 ** 9),
+     (10, 'CROSSTALK', 'Crosstalk',
+      'rosybrown', 2 ** 10),
+     (11, 'NOT_DEBLENDED', 'Pixel in footprint that is too large to deblend',
+      'teal', 2 ** 11),
+     (12, 'UNMASKEDNAN', 'NaN pixels that are interpolated over',
+      'darkgreen', 2 ** 12),
+     (13, 'REJECTED', 'Rejected due to a mask other than EDGE, NO_DATA, or CLIPPED',
+      'violet', 2 ** 13),
+     (14, 'CLIPPED', 'Pixel that has been clipped',
+      'crimson', 2 ** 14),
+     (15, 'SENSOR_EDGE', 'Pixel close to the edge of CCD sensor',
+      'tab:olive', 2 ** 15),
+     (16, 'INEXACT_PSF', 'PSF is not correct',
+      'gold', 2 ** 16)],
+    dtype=[('bits', np.uint8), ('name', '<U18'),
+           ('meaning', '<U80'), ('color', '<U12'), ('value', np.uint32)])
 
 # Bitmask has not changed in S19A and S20A compared to S18A
 S19A_BITMASKS = S18A_BITMASKS

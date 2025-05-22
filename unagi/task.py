@@ -155,7 +155,7 @@ def hsc_tricolor(coord, cutout_size=10.0 * u.Unit('arcsec'), coord_2=None, img_t
 def hsc_cutout(coord, coord_2=None, cutout_size=10.0 * u.Unit('arcsec'), filters='i',
                dr='dr2', rerun='s18a_wide', redshift=None, cosmo=None, img_type='coadd',
                prefix=None, verbose=True, archive=None, save_output=True, use_saved=False,
-               output_dir='./', **kwargs):
+               output_dir='./',**kwargs):
     """
     Generate HSC cutout images.
     """
@@ -351,7 +351,7 @@ def hsc_bulk_cutout(table, cutout_size=10.0 * u.Unit('arcsec'),
                     filters='i', dr='dr2', rerun='s18a_wide', img_type='coadd',
                     verbose=True, archive=None,
                     image=True, variance=False, mask=False, nproc=1,
-                    tmp_dir=None, output_dir='./', overwrite=False, **kwargs):
+                    tmp_dir=None, output_dir='./', overwrite=False, galaxy_id=None, **kwargs):
     """
     Generate HSC cutout images in bulk.
 
@@ -377,7 +377,7 @@ def hsc_bulk_cutout(table, cutout_size=10.0 * u.Unit('arcsec'),
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    output_filename = os.path.join(output_dir, 'cutouts_%s_%s_%s.hdf'%(dr, rerun, img_type))
+    output_filename = os.path.join(output_dir, 'cutouts_%s_%s_%s_%s_%s.hdf'%(dr, rerun, img_type,str(cutout_size), str(galaxy_id)))
     if not overwrite:
         assert not os.path.isfile(output_filename), "Output file already exists: %s"%output_filename
 

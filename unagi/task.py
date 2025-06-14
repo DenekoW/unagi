@@ -379,7 +379,10 @@ def hsc_bulk_cutout(table, cutout_size=10.0 * u.Unit('arcsec'),
 
     output_filename = os.path.join(output_dir, 'cutouts_%s_%s_%s_%s_%s.hdf'%(dr, rerun, img_type,str(cutout_size), str(galaxy_id)))
     if not overwrite:
-        assert not os.path.isfile(output_filename), "Output file already exists: %s"%output_filename
+        if os.path.isfile(output_filename):
+            print("Output file already exists: %s"%output_filename)
+            return output_filename
+        #assert not os.path.isfile(output_filename), "Output file already exists: %s"%output_filename
 
     # Ensure correct filters
     filter_list = list(filters)
@@ -644,7 +647,7 @@ def hsc_bulk_psf(table,
                  img_type='coadd', verbose=True, archive=None,
                  nproc=1,
                  tmp_dir=None, 
-                 output_dir='./', overwrite=False, **kwargs):
+                 output_dir='./', overwrite=False, galaxy_id=None, **kwargs):
     """
     Generate HSC psf images in bulk.
     table: astropy table
@@ -669,9 +672,12 @@ def hsc_bulk_psf(table,
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    output_filename = os.path.join(output_dir, 'psfs_%s_%s_%s.hdf'%(dr, rerun, img_type))
+    output_filename = os.path.join(output_dir, 'psfs_%s_%s_%s_%s.hdf'%(dr, rerun, img_type,str(galaxy_id)))
     if not overwrite:
-        assert not os.path.isfile(output_filename), "Output file already exists: %s"%output_filename
+        if os.path.isfile(output_filename):
+            print("Output file already exists: %s"%output_filename)
+            return output_filename
+        #assert not os.path.isfile(output_filename), "Output file already exists: %s"%output_filename
 
     # Ensure correct filters
     filter_list = list(filters)
